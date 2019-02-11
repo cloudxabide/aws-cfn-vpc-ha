@@ -1,2 +1,9 @@
-# aws-cfn-vpc-ha
-CloudFormation to create a VPC with multi-AZ EC2 instances
+# aws-cloudformation
+
+Learning CloudFormation in phases.
+
+## Overview
+### Phase 1
+-- New VPC with Internet Gateway
+   Public Subnet
+   EC2
