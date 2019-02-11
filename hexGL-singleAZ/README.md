@@ -1,6 +1,6 @@
 # hexGL Single AZ
 
-Cloudformation to deploy a new VPC with a single AZ, single EC2 instance, running HexGL (JavaScript app via Apache)
+Use CloudFormation to deploy a new VPC with a single AZ, single EC2 instance, running HexGL (JavaScript app via Apache)
 
 ## 
 | RESOURCE | VALUE |
