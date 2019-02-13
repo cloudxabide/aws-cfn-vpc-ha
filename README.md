@@ -1,10 +1,14 @@
 # aws-cloudformation
 
-Deploy an application (hexGL - JavaScript) in AWS Cloud - This will be an iterative exercise of different Architectures (listed below) using CloudFormation.
+## Overview
+This repository will review a number of different approaches and architectures.
+
+
 
 ## Architectures (overview)
-single AZ and subnet
-multi-AZ (one public, two private subnet)
+### single AZ and subnet
+Deploy an application (hexGL - JavaScript) in AWS Cloud - using a single AZ and subnet.  
+### multi-AZ (one public, two private subnet)
 
 ## References
 
