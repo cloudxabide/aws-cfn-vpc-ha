@@ -1,6 +1,5 @@
 ---
-AWSTemplateFormatVersion: 2010-09-09
-
+AWSTemplateFormatVersion: 2010-09-09 
 Description:  Add a description for this template here.
 
 Metadata:
@@ -66,6 +65,8 @@ Conditions:
       !Equals [ !Ref 'AWS::Region', us-east-2 ],
       !Equals [ !Ref 'AWS::Region', us-west-2 ]
     ]
+
+Mappings: 
 
 Resources:
 
