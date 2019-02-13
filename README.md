@@ -12,6 +12,5 @@ Deploy an application (hexGL - JavaScript) in AWS Cloud - using a single AZ and 
 
 ## References
 
-[Wordpress multi-AZ reference architecture](https://github.com/aws-samples/aws-refarch-wordpress)
-Learning CloudFormation in phases.
-
+[Wordpress multi-AZ reference architecture](https://github.com/aws-samples/aws-refarch-wordpress)  
+[Tips and Tricks](./tips-n-tricks.md)
