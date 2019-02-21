@@ -3,7 +3,7 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: t2.micro
-      ImageId: 'ami-035be7bafff33b6b6' # Amazon Linux AMI
+      ImageId: 'ami-032509850cf9ee54e' # Amazon Linux AMI
       Tags:
         - Key: Name
           Value: !Join [ "", [ 'VPC /', ' Update' ] ]

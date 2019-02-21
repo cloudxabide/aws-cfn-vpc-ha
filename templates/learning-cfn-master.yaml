@@ -7,9 +7,9 @@ Resources:
   ec2:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-east-1/learning-cfn-02-ec2.yaml
+      TemplateURL: https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-west-2/learning-cfn-02-ec2.yaml
 
   securitygroup:
     Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateURL: https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-east-1/learning-cfn-03-securitygroup.yaml
+      TemplateURL: https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-west-2/learning-cfn-03-securitygroup.yaml
