@@ -7,5 +7,3 @@ Resources:
       Tags:
         - Key: Name
           Value: !Join [ "", [ 'VPC /', ' Update' ] ]
-      SecurityGroups:
-        - !Ref MySecurityGroup
