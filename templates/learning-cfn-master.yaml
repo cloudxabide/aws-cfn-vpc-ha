@@ -1,0 +1,6 @@
+Resources:
+  MyEC2instance:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-east-1/learning-cfn-02-ec2.yaml
+
