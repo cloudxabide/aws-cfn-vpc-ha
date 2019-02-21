@@ -7,3 +7,8 @@ Resources:
       Tags:
         - Key: Name
           Value: !Join [ "", [ 'VPC /', ' Update' ] ]
+      EC2KeyName:
+        - Key: Name
+          Value: cxa-2019-q1
+
+
