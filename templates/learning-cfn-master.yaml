@@ -13,3 +13,4 @@ Resources:
     Type: AWS::CloudFormation::Stack
     Properties:
       TemplateURL: https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-west-2/learning-cfn-03-securitygroup.yaml
+
