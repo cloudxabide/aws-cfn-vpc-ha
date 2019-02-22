@@ -4,6 +4,11 @@ AWSTemplateFormatVersion: 2010-09-09
 Description: Stack to learn how to cascade templates.
 
 Resources:
+  vpc: 
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-west-2/learning-cfn-00-newvpc.yaml
+
   ec2:
     Type: AWS::CloudFormation::Stack
     Properties:

@@ -3,8 +3,8 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: t2.micro
-      ImageId: 'ami-032509850cf9ee54e' # Amazon Linux AMI
+      ImageId: 'ami-032509850cf9ee54e' # Amazon Linux AMI (us-west-2)
       Tags:
         - Key: Name
-          Value: !Join [ "", [ 'VPC /', ' Update' ] ]
+          Value: !Join [ "", [ 'VPC /', !Ref 'AWS::StackName' ] ]
       KeyName: 'cxa-2019-q1'
