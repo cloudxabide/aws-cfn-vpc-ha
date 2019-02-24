@@ -9,7 +9,7 @@ Resources:
           Value: 'Public Subnet 01'
         - Key: SubnetType
           Value: Public
-          VpcId: !Ref Vpc
+      VpcId: !Ref Vpc
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:

@@ -3,8 +3,20 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       InstanceType: t2.micro
-      ImageId: 'ami-032509850cf9ee54e' # Amazon Linux AMI (us-west-2)
+      #ImageId: 'ami-032509850cf9ee54e' # Amazon Linux AMI (us-west-2)
+      ImageId: !FindInMap [ RegionMap, !Ref 'AWS::Region', AMI ]
       Tags:
         - Key: Name
           Value: !Join [ "", [ 'VPC /', !Ref 'AWS::StackName' ] ]
       KeyName: 'cxa-2019-q1'
+
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-035be7bafff33b6b6
+    us-east-2:
+      AMI: ami-04328208f4f0cf1fe
+    us-west-1:
+      AMI: ami-0799ad445b5727125
+    us-west-2:
+      AMI: ami-032509850cf9ee54e

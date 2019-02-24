@@ -3,4 +3,4 @@ for FILE in `ls learn*yaml`; do aws s3 cp $FILE s3://cf-templates-163atm1ydoza8-
 for FILE in `ls learn*yaml`; do echo "###################"; echo $FILE; aws cloudformation validate-template --template-body file:///Users/jaradtke/Repositories/cloudxabide/aws-cloudformation/templates/${FILE}; done
 aws cloudformation create-stack --stack-name "CFNtest" --template-url https://s3.amazonaws.com/cf-templates-163atm1ydoza8-us-west-2/learning-cfn-master.yaml
 aws cloudformation describe-stacks
-aws cloudformtion delete-stack --stack-name "CFNtest"
+aws cloudformation delete-stack --stack-name "CFNtest"
