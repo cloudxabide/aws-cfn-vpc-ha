@@ -5,10 +5,6 @@ This repository will review a number of different approaches and architectures.
 
 
 
-## Architectures (overview)
-### single AZ and subnet
-Deploy an application (hexGL - JavaScript) in AWS Cloud - using a single AZ and subnet.  
-### multi-AZ (one public, two private subnet)
 
 ## References
 
