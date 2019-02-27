@@ -1,3 +1,10 @@
 # Check CFN health 
+# Quick overview check for YAML
 for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudformation validate-template --template-body file://"`pwd`/${FILE}" > /dev/null 2>&1 ; if [ $? -ne 0 ]; then echo "NOTE: aws cloudformation validate-template --template-body file://\"`pwd`/${FILE}\""; fi; done
-for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudformation validate-template --template-body file://"`pwd`/${FILE}"; if [ $? -ne 0 ]; then ech "NOTE: check $FILE"; fi; done
+
+# A verbose check for YAML
+for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudformation validate-template --template-body file://"`pwd`/${FILE}"; if [ $? -ne 0 ]; then echo "NOTE: check $FILE"; fi; done
+
+# Sync up this directory to my S3 bucket
+aws s3 sync `pwd` s3://cloudxabide/aws-cloudformation/99-newvpc-multiAZ/ --delete --acl public-read
+# NOTE:  you may need to run $ touch *   -- and then run the sync, if you need to update the public-read flag

@@ -103,6 +103,8 @@ Metadata:
         default: Web Subnet 4
       WebSubnet5Cidr:
         default: Web Subnet 5
+      CreateAlarms:
+        default: Create Alarms 
 
 Parameters:
 
@@ -137,20 +139,13 @@ Parameters:
     Description: The CIDR IP range that is permitted to SSH to bastion instance. Note - a value of 0.0.0.0/0 will allow access from ANY IP address.
     Type: String
     Default: 0.0.0.0/0
-  UseCloudFrontBoolean:
+  CreateAlarms:
     AllowedValues:
       - true
       - false
     Default: true
-    Description: Specifies whether a CloudFront Distribution should be created to serve the WordPress website content.
-    Type: String
-  UseElastiCacheBoolean:
-    AllowedValues:
-      - true
-      - false
-    Default: true
-    Description: Specifies whether an ElastiCache Cache Cluster should be created to cache WordPress database content.
-    Type: String
+    Description: Specifies whether to create alarms, or not.
+    Type: String 
   UseRoute53Boolean:
     AllowedValues:
       - true
@@ -182,7 +177,7 @@ Parameters:
     Type: String
   AdminEmail:
     AllowedPattern: ^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$
-    Description: The admin email address for WordPress and AWS notifications.
+    Description: The admin email address for AWS notifications.
     Type: String
   AvailabilityZones:
     Description: 'List of Availability Zones to use for the subnets in the VPC. Note:
@@ -297,6 +292,10 @@ Conditions:
   CreateRecordSet: !And
     - !Equals [ true, !Ref UseRoute53Boolean ]
     - !Condition AvailableAWSRegion
+  CreateAlarms:
+        !Equals [ true, !Ref CreateAlarms ]
+  CreateNoAlarms:
+        !Equals [ false, !Ref CreateAlarms ]
 
 Resources:
 
@@ -317,44 +316,6 @@ Resources:
         Subnet:
           !GetAtt [ newvpc, Outputs.PublicSubnet ]
       TemplateURL: https://s3.amazonaws.com/cloudxabide/aws-cloudformation/99-newvpc-multiAZ/aws-refarch-wordpress-03-bastion.yaml
-  dashboardwithalarms:
-    Condition: CreateAlarms
-    DependsOn: [ newvpc, securitygroups, publicalb, efsfilesystem, rds, efsalarms ]
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      Parameters:
-        ElasticFileSystem:
-          !GetAtt [ efsfilesystem, Outputs.ElasticFileSystem ]
-        DatabaseCluster:
-          !GetAtt [ rds, Outputs.DatabaseCluster ]
-        BurstCreditBalanceDecreaseAlarmArn:
-          !GetAtt [ efsalarms, Outputs.BurstCreditBalanceDecreaseAlarmArn ]
-        BurstCreditBalanceIncreaseAlarmArn:
-          !GetAtt [ efsalarms, Outputs.BurstCreditBalanceIncreaseAlarmArn ]
-        CriticalAlarmArn:
-          !GetAtt [ efsalarms, Outputs.CriticalAlarmArn ]
-        WarningAlarmArn:
-          !GetAtt [ efsalarms, Outputs.WarningAlarmArn ]
-        PublicAlbFullName:
-          !GetAtt [ publicalb, Outputs.PublicAlbFullName ]
-        CreateAlarms:
-          !Ref CreateAlarms         
-      TemplateURL: https://s3.amazonaws.com/cloudxabide/aws-cloudformation/99-newvpc-multiAZ/aws-refarch-wordpress-06-dashboard.yaml
-  dashboardwithnoalarms:
-    Condition: EfsCreateNoAlarms
-    DependsOn: [ newvpc, securitygroups, publicalb, efsfilesystem, rds ]
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      Parameters:
-        ElasticFileSystem:
-          !GetAtt [ efsfilesystem, Outputs.ElasticFileSystem ]
-        DatabaseCluster:
-          !GetAtt [ rds, Outputs.DatabaseCluster ]
-        PublicAlbFullName:
-          !GetAtt [ publicalb, Outputs.PublicAlbFullName ]
-        CreateAlarms:
-          !Ref CreateAlarms         
-      TemplateURL: https://s3.amazonaws.com/cloudxabide/aws-cloudformation/99-newvpc-multiAZ/aws-refarch-wordpress-06-dashboard.yaml
   newvpc:
     Type: AWS::CloudFormation::Stack
     Properties:
@@ -418,11 +379,9 @@ Resources:
     Properties:
       Parameters:
         DnsEndpoint:
-          !If [ DeployCloudFront, !GetAtt [ cloudfront, Outputs.DnsEndpoint ], !GetAtt [ publicalb, Outputs.PublicAlbDnsName ] ]
+          !GetAtt [ publicalb, Outputs.PublicAlbDnsName ] 
         DnsHostId:
-          !If [ DeployCloudFront, 'Z2FDTNDATAQYW2', !GetAtt [ publicalb, Outputs.PublicAlbCanonicalHostedZoneId ] ]
-        WPDomainName:
-          !Ref WPDomainName
+          !GetAtt [ publicalb, Outputs.PublicAlbCanonicalHostedZoneId ] 
       TemplateURL: https://s3.amazonaws.com/cloudxabide/aws-cloudformation/99-newvpc-multiAZ/aws-refarch-wordpress-05-route53.yaml
   securitygroups:
     Condition: AvailableAWSRegion
@@ -437,20 +396,10 @@ Resources:
       TemplateURL: https://s3.amazonaws.com/cloudxabide/aws-cloudformation/99-newvpc-multiAZ/aws-refarch-wordpress-02-securitygroups.yaml
   web:
     Condition: AvailableAWSRegion
-    DependsOn: [ efsfilesystem, newvpc, publicalb, securitygroups ]
+    DependsOn: [ newvpc, publicalb, securitygroups ]
     Type: AWS::CloudFormation::Stack
     Properties:
       Parameters:
-        DatabaseClusterEndpointAddress:
-          !GetAtt [ rds, Outputs.DatabaseClusterEndpointAddress ]
-        DatabaseMasterUsername:
-          !Ref DatabaseMasterUsername
-        DatabaseMasterPassword:
-          !Ref DatabaseMasterPassword
-        DatabaseName:
-          !Ref DatabaseName
-        ElasticFileSystem:
-          !GetAtt [ efsfilesystem, Outputs.ElasticFileSystem ]
         EC2KeyName:
           !Ref EC2KeyName
         NumberOfSubnets:
