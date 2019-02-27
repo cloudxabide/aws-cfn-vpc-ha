@@ -1,0 +1,3 @@
+# Check CFN health 
+for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudformation validate-template --template-body file://"`pwd`/${FILE}" > /dev/null 2>&1 ; if [ $? -ne 0 ]; then echo "NOTE: aws cloudformation validate-template --template-body file://\"`pwd`/${FILE}\""; fi; done
+for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudformation validate-template --template-body file://"`pwd`/${FILE}"; if [ $? -ne 0 ]; then ech "NOTE: check $FILE"; fi; done
