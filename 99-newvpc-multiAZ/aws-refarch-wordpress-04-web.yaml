@@ -118,7 +118,6 @@ Parameters:
     Type: AWS::EC2::SecurityGroup::Id
 
 Conditions:
-
   NoSslCertificate:
     !Equals [ False, !Ref SslCertificate ]
   NumberOfSubnets1:
@@ -175,7 +174,6 @@ Mappings:
       AMI: ami-bf4193c7
 
 Resources:
-
   WebInstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties:
@@ -251,8 +249,6 @@ Resources:
         Count: !Ref WebAsgMin
         Timeout: PT5M
 
-
-
   WebLaunchConfiguration70:
     Condition: PHP70
     Type: AWS::AutoScaling::LaunchConfiguration
@@ -262,6 +258,7 @@ Resources:
           deploy_webserver:
             - install_webserver
             - install_hexgl
+            - add_phpinfo
             - start_webserver
         install_webserver:
           packages:
@@ -269,7 +266,6 @@ Resources:
               awslogs: []
               httpd24: []
               php70: []
-              php70-devel: []
           files:
             /var/www/html/phpinfo.php:
               content:
@@ -289,7 +285,17 @@ Resources:
                 ln -s HexGL html
                 restorecon -RFvv /var/www/html"
               ignoreErrors: false
-
+        add_phpinfo:
+          files:
+            /var/www/html/phpinfo.php:
+              content:
+                !Sub |
+                  <html>
+                  <?php phpInfo(); ?>
+                  </html>
+              mode: 000555
+              owner: root
+              group: root
         start_webserver:
           services:
             sysvinit:
@@ -313,7 +319,3 @@ Resources:
             /opt/aws/bin/cfn-signal --exit-code $? --stack ${AWS::StackName} --resource WebAutoScalingGroup --region ${AWS::Region}
 
 
-Outputs:
-
-  Opcachestatus:
-    Value: !Join [ '', [ !Ref PublicAlbHostname, '/opcache-instanceid.php' ] ]
