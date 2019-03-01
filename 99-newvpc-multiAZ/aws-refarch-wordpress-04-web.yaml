@@ -211,7 +211,7 @@ Resources:
     Properties:
       Cooldown: 60
       HealthCheckGracePeriod: 120
-      HealthCheckType: ELB
+      HealthCheckType: EC2
       LaunchConfigurationName:
             !Ref WebLaunchConfiguration70
       MaxSize: !Ref WebAsgMax
@@ -266,6 +266,7 @@ Resources:
               awslogs: []
               httpd24: []
               php70: []
+              git: []
           files:
             /var/www/html/phpinfo.php:
               content:
@@ -280,10 +281,10 @@ Resources:
           commands:
             pull_git_repo:
               cwd: /var/www
-              command: "mv html html.bak 
-                git clone git://github.com/BKcore/HexGL.git
-                ln -s HexGL html
-                restorecon -RFvv /var/www/html"
+              command: "mv html html.bak; 
+                git clone git://github.com/BKcore/HexGL.git;
+                ln -s HexGL html;
+                restorecon -RFvv /var/www/html;"
               ignoreErrors: false
         add_phpinfo:
           files:
@@ -305,7 +306,7 @@ Resources:
     Properties:
       IamInstanceProfile: !Ref WebInstanceProfile
       ImageId: !FindInMap [ RegionMap, !Ref 'AWS::Region', AMI ]
-      InstanceMonitoring: true
+      InstanceMonitoring: false 
       InstanceType: !Ref WebInstanceType
       KeyName: !Ref EC2KeyName
       SecurityGroups:
