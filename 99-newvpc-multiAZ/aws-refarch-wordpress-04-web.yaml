@@ -211,7 +211,7 @@ Resources:
     Properties:
       Cooldown: 60
       HealthCheckGracePeriod: 120
-      HealthCheckType: ALB 
+      HealthCheckType: ELB 
       LaunchConfigurationName:
             !Ref WebLaunchConfiguration70
       MaxSize: !Ref WebAsgMax
