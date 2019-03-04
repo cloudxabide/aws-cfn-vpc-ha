@@ -211,7 +211,7 @@ Resources:
     Properties:
       Cooldown: 60
       HealthCheckGracePeriod: 120
-      HealthCheckType: EC2
+      HealthCheckType: ALB 
       LaunchConfigurationName:
             !Ref WebLaunchConfiguration70
       MaxSize: !Ref WebAsgMax
@@ -258,6 +258,7 @@ Resources:
           deploy_webserver:
             - install_webserver
             - install_hexgl
+            - add_healthcheck 
             - add_phpinfo
             - start_webserver
         install_webserver:
@@ -286,6 +287,19 @@ Resources:
                 ln -s HexGL html;
                 restorecon -RFvv /var/www/html;"
               ignoreErrors: false
+        add_healthcheck:
+          files:
+            /var/www/html/healthcheck.html:
+              content:
+                !Sub |
+                  <html>
+                  <head>
+                  </head>
+                  I am healthy yo.
+                  </html>
+              mode: 000555
+              owner: root
+              group: root
         add_phpinfo:
           files:
             /var/www/html/phpinfo.php:
