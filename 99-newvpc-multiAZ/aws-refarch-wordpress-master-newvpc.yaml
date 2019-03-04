@@ -429,12 +429,6 @@ Outputs:
   StackStatus:
     Description: Master Stack Status
     Value: !If [ AvailableAWSRegion, !Join [ '', [ 'Stack created in an available region: ', !Ref 'AWS::Region' ] ], "!!ERROR!!! - Nothing to do! - unavailable AWS Region. You must create this stack in an available AWS Region: 'us-east-1', 'us-east-2', 'us-west-2', 'eu-west-1', 'ap-southeast-2'." ]
-  PublicAlbDnsName:
-    Value:
-      !GetAtt PublicApplicationLoadBalancer.DNSName
-  PublicAlbFullName:
-    Value:
-      !GetAtt PublicApplicationLoadBalancer.LoadBalancerFullName
   PublicAlbHostname:
     Value:
       !If [ NoSslCertificate, !Join [ '', [ 'http://', !GetAtt PublicApplicationLoadBalancer.DNSName ] ], !Join [ '', [ 'https://', !GetAtt PublicApplicationLoadBalancer.DNSName ] ] ]
