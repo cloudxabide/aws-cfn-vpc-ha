@@ -65,7 +65,7 @@
   },
   {
     "ParameterKey": "UseRoute53Boolean",
-    "ParameterValue": "false"
+    "ParameterValue": "true"
   },
   {
     "ParameterKey": "VpcCidr",
