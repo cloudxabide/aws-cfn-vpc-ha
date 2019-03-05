@@ -22,7 +22,6 @@ Metadata:
         - EC2KeyName
         - SshAccessCidr
         - AdminEmail
-        - CreateAlarms
         - UseRoute53Boolean
         - AppDomainName
         - AppName
@@ -113,8 +112,6 @@ Metadata:
         default: Web Subnet 4
       WebSubnet5Cidr:
         default: Web Subnet 5
-      CreateAlarms:
-        default: Create Alarms 
 
 Parameters:
 
@@ -149,13 +146,6 @@ Parameters:
     Description: The CIDR IP range that is permitted to SSH to bastion instance. Note - a value of 0.0.0.0/0 will allow access from ANY IP address.
     Type: String
     Default: 0.0.0.0/0
-  CreateAlarms:
-    AllowedValues:
-      - true
-      - false
-    Default: true
-    Description: Specifies whether to create alarms, or not.
-    Type: String 
   UseRoute53Boolean:
     AllowedValues:
       - true
@@ -310,10 +300,6 @@ Conditions:
   CreateRecordSet: !And
     - !Equals [ true, !Ref UseRoute53Boolean ]
     - !Condition AvailableAWSRegion
-  CreateAlarms:
-        !Equals [ true, !Ref CreateAlarms ]
-  CreateNoAlarms:
-        !Equals [ false, !Ref CreateAlarms ]
 
 Resources:
 
