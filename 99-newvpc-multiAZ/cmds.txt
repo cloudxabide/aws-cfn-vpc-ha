@@ -24,3 +24,4 @@ aws s3 sync `pwd` s3://cloudxabide/aws-cloudformation/99-newvpc-multiAZ/ --delet
 
 # NOTE:  you may need to run $ touch *   -- and then run the sync, if you need to update the public-read flag
 aws cloudformation create-stack --stack-name "Test01" --template-url https://s3.amazonaws.com/cloudxabide/aws-cloudformation/99-newvpc-multiAZ/aws-refarch-wordpress-master-newvpc.yaml --parameters https://s3.amazonaws.com/cloudxabide/aws-cloudformation/99-newvpc-multiAZ/params-${REGION}.json --region ${REGION} --capabilities CAPABILITY_IAM
+

@@ -9,7 +9,10 @@ Metadata:
   Authors:
     Description: James Radtke (jaradtke@amazon.com)  
   License:
-    Description: 'TBC later'
+    Description: 'This is based on the reference architecture created by:
+    Darryl Osborne (darrylo@amazon.com) 
+    https://github.com/aws-samples/aws-refarch-wordpress
+    I was unable to grok his complete work, so I have been "stepping in to it" using portions of his example.'
 
   AWS::CloudFormation::Interface:
     ParameterGroups:
