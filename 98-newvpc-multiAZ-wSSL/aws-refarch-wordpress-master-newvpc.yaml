@@ -25,6 +25,7 @@ Metadata:
         - CreateAlarms
         - UseRoute53Boolean
         - AppDomainName
+        - AppName
     - Label:
         default: Network
       Parameters:
@@ -61,6 +62,8 @@ Metadata:
       BastionInstanceType:
         default: Bastion Instance Type
       AppDomainName:
+        default: Domain for this application (cloudxabide.com)
+      AppName:
         default: App Alias for URL (hexGL)
       EC2KeyName:
         default: EC2 Key Pair
@@ -188,7 +191,11 @@ Parameters:
     Type: String
   AppDomainName:
     AllowedPattern: ^$|(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
-    Description: 'The name used in the URL creation'
+    Description: 'The domain name used in the URL creation'
+    Type: String
+  AppName:
+    AllowedPattern: ^$|(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+    Description: 'The hostname used in the URL creation'
     Type: String
   AvailabilityZones:
     Description: 'List of Availability Zones to use for the subnets in the VPC. Note:
@@ -395,6 +402,8 @@ Resources:
           !GetAtt [ publicalb, Outputs.PublicAlbCanonicalHostedZoneId ] 
         AppDomainName:
           !Ref AppDomainName
+        AppName:
+          !Ref AppName
       TemplateURL: https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-05-route53.yaml
   securitygroups:
     Condition: AvailableAWSRegion

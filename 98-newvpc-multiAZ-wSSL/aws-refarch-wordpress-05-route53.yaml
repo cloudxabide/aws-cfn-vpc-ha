@@ -15,6 +15,7 @@ Metadata:
     - Label:
         default: Route 53 Parameters
       Parameters:
+        - AppName
         - AppDomainName
         - DnsEndpoint
         - DnsHostId
@@ -24,7 +25,9 @@ Metadata:
       DnsHostId:
         default: DNS Host Id
       AppDomainName:
-        default: Site Domain
+        default: Site Domain (xyz.<here>.com)
+      AppName:
+        default: Application Name (<here>.example.com)
 
 Parameters:
 
@@ -40,6 +43,10 @@ Parameters:
     AllowedPattern: ^(?!http)(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
     Description: The main domain name of the WordPress site (e.g. example.com).
     Type: String
+  AppName:
+    AllowedPattern: ^(?!http)(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$
+    Description: The application name of the hexGL site (e.g. <here>.example.com).
+    Type: String
 
 Resources:
 
@@ -48,7 +55,7 @@ Resources:
     Properties:
       HostedZoneName: !Join ['', [!Ref AppDomainName, '.']]
       RecordSets:
-      - Name: !Join ['', ['www.', !Ref AppDomainName, '.']]
+      - Name: !Join ['', [!Ref AppName, '.', !Ref AppDomainName, '.']]
         Type: A
         AliasTarget:
           DNSName: !Ref DnsEndpoint

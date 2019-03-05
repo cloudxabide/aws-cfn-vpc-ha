@@ -5,8 +5,6 @@ for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudf
 # A verbose check for YAML
 for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudformation validate-template --template-body file://"`pwd`/${FILE}"; if [ $? -ne 0 ]; then echo "NOTE: check $FILE"; fi; done
 
-
-
 ## So.. this one is probably going to seem a bit odd to peeps.  I was trying to figure out how to take the output from completing the CloudFormation Form... taking the "Parameters" output and generating a "params.json" file.  (I do this so that I can mess around with the templates, but not have to manually submit the CloudFormation form - just like everyone else).  Anywho....
 
 REGION="us-east-1"
