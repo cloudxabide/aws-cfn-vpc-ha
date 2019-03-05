@@ -15,6 +15,14 @@ aws-refarch-wordpress-03-bastion.yaml
 aws-refarch-wordpress-03-publicalb.yaml  
 aws-refarch-wordpress-04-web.yaml  
 
+[98-newvpc-multiAZ-wSSL](98-newvpc-multiAZ-wSSL) -- This is my attempt to start adding functionality to the working example.  This go 'round I have added route53.
+[98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-01-newvpc.yaml](98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-01-newvpc.yaml)  
+[98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-02-securitygroups.yaml](98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-02-securitygroups.yaml)  
+[98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-03-bastion.yaml](98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-03-bastion.yaml)  
+[98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-03-publicalb.yaml](98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-03-publicalb.yaml)    
+[98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-04-web.yaml](98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-04-web.yaml)  
+[98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-05-route53.yaml](98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-05-route53.yaml)  
+[98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-master-newvpc.yaml](98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-master-newvpc.yaml)  
 ## References
 
 [Wordpress multi-AZ reference architecture](https://github.com/aws-samples/aws-refarch-wordpress)  
