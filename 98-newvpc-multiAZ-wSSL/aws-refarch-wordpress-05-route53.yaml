@@ -25,9 +25,9 @@ Metadata:
       DnsHostId:
         default: DNS Host Id
       AppDomainName:
-        default: Site Domain (xyz.<here>.com)
+        default: Site Domain (AppName.<here>.com)
       AppName:
-        default: Application Name (<here>.example.com)
+        default: Application Name (<here>.AppDomainName.com)
 
 Parameters:
 
