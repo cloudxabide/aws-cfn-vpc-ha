@@ -77,7 +77,7 @@
   },
   {
     "ParameterKey": "WebAsgMin",
-    "ParameterValue": "1"
+    "ParameterValue": "2"
   },
   {
     "ParameterKey": "WebInstanceType",

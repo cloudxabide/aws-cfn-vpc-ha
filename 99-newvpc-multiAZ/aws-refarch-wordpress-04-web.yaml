@@ -260,6 +260,7 @@ Resources:
             - install_hexgl
             - add_healthcheck 
             - add_phpinfo
+            - add_hostname
             - start_webserver
         install_webserver:
           packages:
@@ -267,18 +268,10 @@ Resources:
               awslogs: []
               httpd24: []
               php70: []
-              git: []
-          files:
-            /var/www/html/phpinfo.php:
-              content:
-                !Sub |
-                  <html>
-                  <?php phpInfo(); ?>
-                  </html>
-              mode: 000555
-              owner: root
-              group: root
         install_hexgl:
+          packages:
+            yum:
+              git: []
           commands:
             pull_git_repo:
               cwd: /var/www
@@ -308,6 +301,15 @@ Resources:
                   <html>
                   <?php phpInfo(); ?>
                   </html>
+              mode: 000555
+              owner: root
+              group: root
+        add_hostname:
+          commands:
+            create_file:
+              cwd: /var/www/html
+              command: "uname -n > /var/www/html/hostname.txt"
+              ignoreErrors: true
               mode: 000555
               owner: root
               group: root
