@@ -276,7 +276,7 @@ Resources:
             pull_git_repo:
               cwd: /var/www
               command: "mv html html.bak; 
-                git clone git://github.com/BKcore/HexGL.git;
+                git clone git://github.com/cloudxabide/HexGL.git;
                 ln -s HexGL html;
                 restorecon -RFvv /var/www/html;"
               ignoreErrors: false
