@@ -13,3 +13,9 @@ Or better yet...
 ```
 $ sed -n '/^Resources/,/EOF/p' HexGL-designer-template.yaml | egrep -v 'AWS::CloudFormation::Designer|id:|Metadata:'
 ```
+
+### Some handy "one-liners" (there not all one line)
+Display all of the AZs in each Region
+```
+for REGION in $(aws ec2 describe-regions --out text --query "Regions[].RegionName"); do aws ec2 describe-availability-zones --out text --query "AvailabilityZones[].ZoneName" --region $REGION; done
+```
