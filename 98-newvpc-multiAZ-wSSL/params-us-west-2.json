@@ -33,7 +33,7 @@
   },
   {
     "ParameterKey": "PublicAlbAcmCertificate",
-    "ParameterValue": "    arn:aws:acm:us-west-2:427832613400:certificate/648a961e-1e61-4474-9be6-1dda24c12767"
+    "ParameterValue": "arn:aws:acm:us-west-2:427832613400:certificate/648a961e-1e61-4474-9be6-1dda24c12767"
   },
   {
     "ParameterKey": "PublicSubnet0Cidr",
