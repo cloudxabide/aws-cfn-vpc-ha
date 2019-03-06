@@ -8,5 +8,5 @@ There is still some clean up to be done.  I have been using this project to deve
 It will only run on Firefox nowadays.
 
 ## References:
-http://hexgl.bkcore.com/
+http://hexgl.bkcore.com/  
 https://github.com/aws-samples/aws-refarch-wordpress
