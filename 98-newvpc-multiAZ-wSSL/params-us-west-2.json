@@ -1,7 +1,7 @@
 [
   { 
     "ParameterKey": "AppName",
-    "ParameterValue": "hexglusw2"
+    "ParameterValue": "hexglw2"
   },
   { 
     "ParameterKey": "AppDomainName",
@@ -9,7 +9,7 @@
   },
   {
     "ParameterKey": "PublicAlbAcmCertificate",
-    "ParameterValue": "arn:aws:acm:us-west-2:427832613400:certificate/648a961e-1e61-4474-9be6-1dda24c12767"
+    "ParameterValue": "arn:aws:acm:us-west-2:427832613400:certificate/667c1ba5-18d1-473c-ac23-bb1618ff8356"
   },
   {
     "ParameterKey": "AdminEmail",
