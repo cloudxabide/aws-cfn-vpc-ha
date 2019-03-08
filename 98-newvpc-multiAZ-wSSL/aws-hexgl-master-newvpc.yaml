@@ -21,7 +21,6 @@ Metadata:
       Parameters:
         - EC2KeyName
         - SshAccessCidr
-        - AdminEmail
         - UseRoute53Boolean
         - AppDomainName
         - AppName
@@ -173,10 +172,6 @@ Parameters:
     ConstraintDescription: Must be a valid Amazon EC2 instance type.
     Default: t2.small
     Description: The Amazon EC2 instance type for your web instances.
-    Type: String
-  AdminEmail:
-    AllowedPattern: ^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$
-    Description: The admin email address for AWS notifications.
     Type: String
   AppDomainName:
     AllowedPattern: ^$|(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$

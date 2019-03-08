@@ -1,23 +1,15 @@
 [
-  { 
+  {
     "ParameterKey": "AppName",
-    "ParameterValue": "hexglw2"
+    "ParameterValue": "hexgl"
   },
-  { 
+  {
     "ParameterKey": "AppDomainName",
     "ParameterValue": "cloudxabide.com"
   },
   {
-    "ParameterKey": "PublicAlbAcmCertificate",
-    "ParameterValue": "arn:aws:acm:us-west-2:427832613400:certificate/667c1ba5-18d1-473c-ac23-bb1618ff8356"
-  },
-  {
-    "ParameterKey": "AdminEmail",
-    "ParameterValue": "jaradtke@amazon.com"
-  },
-  {
     "ParameterKey": "AvailabilityZones",
-    "ParameterValue": "us-west-2b,us-west-2c,us-west-2a"
+    "ParameterValue": "us-west-2a,us-west-2b,us-west-2c"
   },
   {
     "ParameterKey": "BastionInstanceType",
@@ -34,6 +26,10 @@
   {
     "ParameterKey": "PHPVersion",
     "ParameterValue": "7.0"
+  },
+  {
+    "ParameterKey": "PublicAlbAcmCertificate",
+    "ParameterValue": ""
   },
   {
     "ParameterKey": "PublicSubnet0Cidr",
@@ -65,7 +61,7 @@
   },
   {
     "ParameterKey": "UseRoute53Boolean",
-    "ParameterValue": "true"
+    "ParameterValue": "false"
   },
   {
     "ParameterKey": "VpcCidr",
@@ -81,7 +77,7 @@
   },
   {
     "ParameterKey": "WebAsgMin",
-    "ParameterValue": "2"
+    "ParameterValue": "1"
   },
   {
     "ParameterKey": "WebInstanceType",

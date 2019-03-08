@@ -7,17 +7,30 @@ for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudf
 
 ## So.. this one is probably going to seem a bit odd to peeps.  I was trying to figure out how to take the output from completing the CloudFormation Form... taking the "Parameters" output and generating a "params.json" file.  (I do this so that I can mess around with the templates, but not have to manually submit the CloudFormation form - just like everyone else).  Anywho....
 
-REGION="us-east-1"
-STACK_NAME="hexGL"
+REGION="us-west-2"
+STACK_NAME="HEXGLW2"
 OUTPUT="params-${REGION}.json"
 OPTIONS=" --disable-rollback"
-- create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.
+#- create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.
 cat params.cfn | while read ParameterKey ParameterValue; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}
-- once you have the params.json created, add open/close square-brackets at the beginning and end
+#- once you have the params.json created, add open/close square-brackets at the beginning and end
+case `sed --version | head -1` in
+  *GNU*)
+    # Add the '[' to the beginning of the file
+    sed -i -e '1i[' ${OUTPUT}
+    # Remove the trailing ',' from the last entry
+    sed  -i '$ s/},/}/' *west-2*
+  ;;
+  *)
 sed -i'' '1i\
 [\
 ' ${OUTPUT}
+  ;;
+esac  
 echo "]" >> ${OUTPUT}
+
+#- You now need to go update the AZs listed with the correct region
+sed -i "s/us-east-1/${REGION}/g" $OUTPUT
 
 # Sync up this directory to my S3 bucket
 aws s3 sync `pwd` s3://cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/ --delete --acl public-read
