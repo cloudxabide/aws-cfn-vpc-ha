@@ -10,7 +10,7 @@ for FILE in `ls aws*yaml`; do echo "###################"; echo $FILE; aws cloudf
 REGION="us-east-1"
 STACK_NAME="hexGL"
 OUTPUT="params-${REGION}.json"
-
+OPTIONS=" --disable-rollback"
 - create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.
 cat params.cfn | while read ParameterKey ParameterValue; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}
 - once you have the params.json created, add open/close square-brackets at the beginning and end
@@ -23,7 +23,7 @@ echo "]" >> ${OUTPUT}
 aws s3 sync `pwd` s3://cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/ --delete --acl public-read
 
 # NOTE:  you may need to run $ touch *   -- and then run the sync, if you need to update the public-read flag
-aws cloudformation create-stack --stack-name "${STACK_NAME}" --template-url https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-refarch-wordpress-master-newvpc.yaml --parameters https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/params-${REGION}.json --region ${REGION} --capabilities CAPABILITY_IAM
+aws cloudformation create-stack --stack-name "${STACK_NAME}" --template-url https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml --parameters https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/params-${REGION}.json --region ${REGION} --capabilities CAPABILITY_IAM ${OPTIONS}
 aws cloudformation describe-stack-events --stack-name "${STACK_NAME}" --region ${REGION}
 aws cloudformation delete-stack --stack-name "${STACK_NAME}" --region ${REGION}
 
