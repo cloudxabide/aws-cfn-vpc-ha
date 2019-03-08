@@ -1,8 +1,10 @@
 ---
 AWSTemplateFormatVersion: 2010-09-09
 
-Description: Stack to deploy a highly available, elastic, scalable Simple Web Server Environment.
-  This master template will reference templates of "other concerns".
+Description: 'Stack to deploy a highly available, elastic, scalable simple webserver environment
+  hosting "hexGL" which a game resemblin wipeout.
+  This master template will reference other templates of "concerns".
+  hexGL - http://hexgl.bkcore.com'
 
 Metadata:
 

@@ -29,7 +29,7 @@
   },
   {
     "ParameterKey": "PublicAlbAcmCertificate",
-    "ParameterValue": ""
+    "ParameterValue": "arn:aws:acm:us-west-2:427832613400:certificate/667c1ba5-18d1-473c-ac23-bb1618ff8356"
   },
   {
     "ParameterKey": "PublicSubnet0Cidr",
@@ -61,7 +61,7 @@
   },
   {
     "ParameterKey": "UseRoute53Boolean",
-    "ParameterValue": "false"
+    "ParameterValue": "true"
   },
   {
     "ParameterKey": "VpcCidr",
