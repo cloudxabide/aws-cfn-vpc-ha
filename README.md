@@ -10,7 +10,7 @@ In development - NOTHING in here is production worthy.
 There is definitely conversation to be had about the merits of a single template vs nested templates.  Since I am still fairly new to all this, I'll leave that alone for now.  But, I *like* the concept of nested templates and separating your tech parameters by "concern" (compute vs security vs networking) which *should* allow for reusable artifacts.  
 ### Naming Standards
 For now, I am using the following:
-aws-<project>-<numeric value>-<concern>.yaml  
+aws-\<project\>-\<numeric value\>-\<concern\>.yaml  
 aws-hexgl-01-vpc.yaml  
 aws-hexgl-02-securitygroups.yaml  
 aws-hexgl-master.yaml  
