@@ -48,7 +48,7 @@ aws-hexgl-04-web.yaml
 
 ## CFN Launch Links
 
-### [98-newvpc-multiAZ-wSSL](98-newvpc-multiAZ-wSSL) example
+### [98-newvpc-multiAZ-wSSL](98-newvpc-multiAZ-wSSL){:target="_blank"}
 
 | AWS Region | Region Name | Launch Button 
 | --- | --- | ---
