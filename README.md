@@ -53,9 +53,9 @@ aws-hexgl-04-web.yaml
 | AWS Region | Region Name | Launch Button 
 | --- | --- | ---
 | us-east-1 | US East (N. Virginia) |  [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
-| us-east-2 | US East (Ohio) | 
-| us-west-1 | US West (N. California) | 
-| us-west-2 | US West (Oregon) | 
+| us-east-2 | US East (Ohio) | [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
+| us-west-1 | US West (N. California) | [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
+| us-west-2 | US West (Oregon) | [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
 
 If you prefer the CLI
 ```
