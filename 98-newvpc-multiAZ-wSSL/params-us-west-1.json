@@ -12,10 +12,6 @@
     "ParameterValue": "arn:aws:acm:us-west-1:427832613400:certificate/4cc8be49-04c0-45d0-ab30-ca39f9e8cb92"
   },
   {
-    "ParameterKey": "AdminEmail",
-    "ParameterValue": "jaradtke@amazon.com"
-  },
-  {
     "ParameterKey": "AvailabilityZones",
     "ParameterValue": "us-west-1b,us-west-1a"
   },

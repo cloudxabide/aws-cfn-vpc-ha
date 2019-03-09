@@ -36,7 +36,7 @@ Parameters:
     Description: The DNS endpoint - CloudFront DNS if using CloudFront else Public ELB DNS name.
     Type: String
   DnsHostId:
-    AllowedPattern: ^[A-Z0-9]{14}$
+    AllowedPattern: ^[A-Z0-9]{10,14}$
     Description: The DNS host zone id - 'Z2FDTNDATAQYW2' if using CloudFront else Public ELB host zone id.
     Type: String
   AppDomainName:
@@ -61,3 +61,9 @@ Resources:
           DNSName: !Ref DnsEndpoint
           EvaluateTargetHealth: True
           HostedZoneId: !Ref DnsHostId
+
+Outputs:
+
+  DnsHostId:
+    Description: The DnsHostId
+    Value: !Ref DnsHostId

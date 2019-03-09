@@ -1,7 +1,7 @@
 [
   { 
     "ParameterKey": "AppName",
-    "ParameterValue": "hexgle"
+    "ParameterValue": "hexgle2"
   },
   { 
     "ParameterKey": "AppDomainName",
@@ -10,10 +10,6 @@
   {
     "ParameterKey": "PublicAlbAcmCertificate",
     "ParameterValue": "arn:aws:acm:us-east-2:427832613400:certificate/d7adbc33-e8fc-49d8-a39e-15d299e62fe5"
-  },
-  {
-    "ParameterKey": "AdminEmail",
-    "ParameterValue": "jaradtke@amazon.com"
   },
   {
     "ParameterKey": "AvailabilityZones",
