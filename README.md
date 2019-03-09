@@ -57,4 +57,9 @@ aws-hexgl-04-web.yaml
 | us-west-1 | US West (N. California) | 
 | us-west-2 | US West (Oregon) | 
 
+If you prefer the CLI
+```
+REGION="us-east-1"
+STACK_NAME="HEXGLE1"
 aws cloudformation create-stack --stack-name "${STACK_NAME}" --template-url https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml --parameters https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/params-${REGION}.json --region ${REGION} --capabilities CAPABILITY_IAM ${OPTIONS}
+```
