@@ -41,3 +41,6 @@ aws cloudformation describe-stack-events --stack-name "${STACK_NAME}" --region $
 aws cloudformation delete-stack --stack-name "${STACK_NAME}" --region ${REGION}
 
 aws route53 list-resource-record-sets --hosted-zone-id Z1F045AL9FKCNH --query "ResourceRecordSets[].Name"
+
+# Ramp Up EC2 instance size for Web instances
+aws autoscaling update-auto-scaling-group --auto-scaling-group-name "HEXGLW2-web-1XJ3AO6X1ZZ50-WebAutoScalingGroup-Y9O5WYIC2RMY" --desired-capacity 2
