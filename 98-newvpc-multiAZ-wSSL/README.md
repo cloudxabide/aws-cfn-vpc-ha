@@ -16,9 +16,7 @@ https://github.com/aws-samples/aws-refarch-wordpress
 
 ## Troubleshooting and "Lessons Learned"
 ### Reference Architectures are not infallable.
-While I was debriefing and explaining my discovery to one of our senior DevOps folks, he replied "Ya... I told you 
-this happens".  He was referring to a previous conversation about some old technical debt and how it had once been 
-a Gold Standard and now needed refactoring because of extended periods of neglect and changing infrastrcuture.  
+While I was debriefing and explaining that I had discovered a potential issue with the Reference Architecture  to one of our senior DevOps folks, he replied "Ya... I told you... this happens".  He was referring to a previous conversation about some old technical debt and how it had once been a Gold Standard and now needed refactoring because of extended periods of neglect and changing infrastrcuture.  
 
 Observe the following code (and see if you can immediately see what the potential issue is/was:
 ```
@@ -37,7 +35,7 @@ Z1H1 FL5H ABSF 5   (fail)
 Z368 ELLR RE2K J0  (succeed)
 ```
 
-I have been unable to find what the "standard" is regarding the length, but, for now, I have modified the code.
+I have not been able to find what the "standard" is regarding the length, but, for now, I have modified the code.
 ```
   DnsHostId:
     AllowedPattern: ^[A-Z0-9]{10,14}$
