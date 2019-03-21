@@ -31,6 +31,10 @@ Now - what made this issue interesting, is that my CloudFormation worked in us-e
 
 It wasn't until I figured out how to "--disable-rollback" and troubleshooting the output, that I discovered the DnsHost Zone Id values being returned were different lengths.
 ```
+$ aws route53 list-resource-record-sets --hosted-zone-id Z1F045AL9FKCNH | grep HostedZoneId
+                "HostedZoneId": "Z3AADJGX6KTTL2",
+                "HostedZoneId": "Z1H1FL5HABSF5",
+
 Z1H1 FL5H ABSF 5   (fail)
 Z368 ELLR RE2K J0  (succeed)
 ```
