@@ -2,7 +2,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 
 Description: 'Stack to deploy a highly available, elastic, scalable simple webserver environment
-  hosting "hexGL" which a game resemblin wipeout.
+  hosting "hexGL" which a game resembling wipeout.
   This master template will reference other templates of "concerns".
   hexGL - http://hexgl.bkcore.com'
 
@@ -14,7 +14,8 @@ Metadata:
     Description: 'This is based on the reference architecture created by:
     Darryl Osborne (darrylo@amazon.com) 
     https://github.com/aws-samples/aws-refarch-wordpress
-    I was unable to grok his complete work, so I have been "stepping in to it" using portions of his example.'
+    I was unable to grok his complete work, so I have been "stepping in to it" using portions of 
+    his example.'
 
   AWS::CloudFormation::Interface:
     ParameterGroups:
