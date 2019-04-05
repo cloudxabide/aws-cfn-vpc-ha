@@ -43,23 +43,10 @@ aws-hexgl-04-web.yaml
 
 
 ## References
-[Wordpress multi-AZ reference architecture](https://github.com/aws-samples/aws-hexgl)  
+[Wordpress multi-AZ reference architecture](https://github.com/aws-samples/aws-refarch-wordpress)  
 [Tips and Tricks](./tips-n-tricks.md)
 
 ## CFN Launch Links
 
 ### [98-newvpc-multiAZ-wSSL](98-newvpc-multiAZ-wSSL)
-
-| AWS Region | Region Name | Launch Button 
-| --- | --- | ---
-| us-east-1 | US East (N. Virginia) |  [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
-| us-east-2 | US East (Ohio) | [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
-| us-west-1 | US West (N. California) | [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
-| us-west-2 | US West (Oregon) | [![cloudformation-launch-stack](images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=WordPress&templateURL=https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml) |
-
-If you prefer the CLI
-```
-REGION="us-east-1"
-STACK_NAME="HEXGLE1"
-aws cloudformation create-stack --stack-name "${STACK_NAME}" --template-url https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/aws-hexgl-master-newvpc.yaml --parameters https://s3.amazonaws.com/cloudxabide/aws-cloudformation/98-newvpc-multiAZ-wSSL/params-${REGION}.json --region ${REGION} --capabilities CAPABILITY_IAM ${OPTIONS}
-```
+moved to [https://github.com/cloudxabide/aws-cloudformation-hexgl](https://github.com/cloudxabide/aws-cloudformation-hexgl)
