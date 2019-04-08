@@ -24,6 +24,7 @@ I keep track of the commands frequently executued in the context of what I am do
 While this example is optimally created to be used with the CloudFormation webUI, for obvious reasons I would like to be able to submit (and resubmit) the job from the CLI with minimal user inputs.  One interesting thing to note: parameter files are *only* JSON at this time (early-2019).  Not sure that will change (not sure I care).
 
 ## Projects
+### HexGL App with CloudFormation
 Deploy HexGL using CloudFormation and nested templates.  
 [New VPC, Multi-AZ, EC2 instances running HTML5/javascript/webGL app](https://github.com/cloudxabide/aws-cloudformation-hexgl)  
 
