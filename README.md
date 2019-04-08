@@ -21,7 +21,7 @@ The "master" template is the primary one to be called and will call the others (
 I keep track of the commands frequently executued in the context of what I am doing.
 
 ### Parameter Files (params-*)
-While this example is optimally created to be used with the CloudFormation webUI, for obvious reasons I would like to be able to submit (and resubmit) the job from the CLI with minimal user inputs.  One interesting thing to note: parameter files are *only* JSON at this time (early-2019).  Not sure that will change (not sure I care).
+While this example is optimally created to be used with the CloudFormation webUI, for obvious reasons I would like to be able to submit (and resubmit) the job from the CLI with minimal user inputs.  One interesting thing to note: parameter files are *only* JSON at this time (early-2019).  Not sure that will change (not sure I care).  
 params-us-east-1.json  
 params-us-west-2.json  
 
