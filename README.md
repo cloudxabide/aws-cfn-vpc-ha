@@ -25,13 +25,9 @@ While this example is optimally created to be used with the CloudFormation webUI
 
 ## Projects
 Deploy HexGL using CloudFormation and nested templates.  
-[https://github.com/cloudxabide/aws-cloudformation-hexgl](https://github.com/cloudxabide/aws-cloudformation-hexgl)  
+[New VPC, Multi-AZ, EC2 instances running HTML5/javascript/webGL app](https://github.com/cloudxabide/aws-cloudformation-hexgl)  
 
 ## References
 [Wordpress multi-AZ reference architecture](https://github.com/aws-samples/aws-refarch-wordpress)  
 [Tips and Tricks](./tips-n-tricks.md)
 
-## CFN Launch Links
-
-### [98-newvpc-multiAZ-wSSL](98-newvpc-multiAZ-wSSL)
-moved to [https://github.com/cloudxabide/aws-cloudformation-hexgl](https://github.com/cloudxabide/aws-cloudformation-hexgl)
