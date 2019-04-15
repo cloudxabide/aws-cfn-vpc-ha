@@ -26,7 +26,7 @@ case `sed --version | head -1` in
     # Add the '[' to the beginning of the file
     sed -i -e '1i[' ${OUTPUT}
     # Remove the trailing ',' from the last entry
-    sed  -i '$ s/},/}/' *west-2*
+    sed  -i '$ s/},/}/' ${OUTPUT}
   ;;
   *)
 sed -i'' '1i\
