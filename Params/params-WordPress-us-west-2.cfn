@@ -1,13 +1,13 @@
 AdminEmail    jaradtke@amazon.com    
 AvailabilityZones    us-west-2a,us-west-2b,us-west-2c    
 BastionInstanceType    t2.nano    
-CloudFrontAcmCertificate    arn:aws:acm:us-west-2:427832613400:certificate/667c1ba5-18d1-473c-ac23-bb1618ff8356    
+CloudFrontAcmCertificate   arn:aws:acm:us-east-1:427832613400:certificate/57c534b7-4560-4610-a084-ad78d906d8df 
 DatabaseCmk        
 DatabaseEncrpytedBoolean    true    
 DatabaseInstanceType    db.t2.medium    
 DatabaseMasterPassword    Passw0rd 
 DatabaseMasterUsername    dbmaster    
-DatabaseName    wp    
+DatabaseName    wordpressdb
 DataSubnet0Cidr    10.0.100.0/24    
 DataSubnet1Cidr    10.0.101.0/24    
 DataSubnet2Cidr    10.0.102.0/24    

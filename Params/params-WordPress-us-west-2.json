@@ -13,7 +13,7 @@
   },
   {
     "ParameterKey": "CloudFrontAcmCertificate",
-    "ParameterValue": "arn:aws:acm:us-west-2:427832613400:certificate/667c1ba5-18d1-473c-ac23-bb1618ff8356"
+    "ParameterValue": "arn:aws:acm:us-east-1:427832613400:certificate/57c534b7-4560-4610-a084-ad78d906d8df"
   },
   {
     "ParameterKey": "DatabaseCmk",
