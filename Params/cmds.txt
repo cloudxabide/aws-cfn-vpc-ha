@@ -1,7 +1,0 @@
-REGION="us-west-2"
-STACK_NAME="WordPress"
-OUTPUT="params-${STACK_NAME}-${REGION}.json"
-INPUT="params-${STACK_NAME}-${REGION}.cfn"
-OPTIONS=" --disable-rollback"
-#- create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.
-cat $INPUT | while read ParameterKey ParameterValue; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}
