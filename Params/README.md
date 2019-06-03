@@ -19,10 +19,13 @@ OUTPUT="params-${STACK_NAME}-${REGION}.json"
 INPUT="params-${STACK_NAME}-${REGION}.cfn"  
 OPTIONS=" --disable-rollback"  
 #- create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.  
-grep -v ^# $INPUT | while read ParameterKey ParameterValue; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}  
+# I added "DUMMY" as there is a new field (-k3) in the output now (what a PITA :-(
+grep -v ^# $INPUT | while read ParameterKey ParameterValue DUMMY; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}  
 #- once you have the params.json created, add open/close square-brackets at the beginning and end  
 case `sed --version | head -1` in  
   *GNU*)  
+    # Remove the entries which are just a hypen "-"
+    sed -i -e 's/"-"/""/g' $OUTPUT
     # Add the '[' to the beginning of the file  
     sed -i -e '1i[' ${OUTPUT}  
     # Remove the trailing ',' from the last entry
