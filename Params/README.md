@@ -12,19 +12,19 @@ Grab the Parameters and create a text file.
 Parse the text file and run some foo to create the JSON output.
 Party
 
-
-REGION="us-west-2"
-STACK_NAME="WordPress"
-OUTPUT="params-${STACK_NAME}-${REGION}.json"
-INPUT="params-${STACK_NAME}-${REGION}.cfn"
-OPTIONS=" --disable-rollback"
-#- create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.
-grep -v ^# $INPUT | while read ParameterKey ParameterValue; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}
-#- once you have the params.json created, add open/close square-brackets at the beginning and end
-case `sed --version | head -1` in
-  *GNU*)
-    # Add the '[' to the beginning of the file
-    sed -i -e '1i[' ${OUTPUT}
+```
+REGION="us-west-2"   
+STACK_NAME="WordPress"  
+OUTPUT="params-${STACK_NAME}-${REGION}.json"  
+INPUT="params-${STACK_NAME}-${REGION}.cfn"  
+OPTIONS=" --disable-rollback"  
+#- create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.  
+grep -v ^# $INPUT | while read ParameterKey ParameterValue; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}  
+#- once you have the params.json created, add open/close square-brackets at the beginning and end  
+case `sed --version | head -1` in  
+  *GNU*)  
+    # Add the '[' to the beginning of the file  
+    sed -i -e '1i[' ${OUTPUT}  
     # Remove the trailing ',' from the last entry
     sed  -i '$ s/},/}/' ${OUTPUT}
   ;;
@@ -42,7 +42,7 @@ aws cloudformation create-stack --stack-name "${STACK_NAME}" \
  --region ${REGION} --capabilities CAPABILITY_IAM ${OPTIONS}
 
 aws cloudformation describe-stack-events --stack-name "${STACK_NAME}" --region ${REGION}
-
+```
 
 
 
