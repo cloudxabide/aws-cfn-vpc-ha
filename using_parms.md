@@ -1,4 +1,4 @@
-# CreateParamsFromCFN
+# Create Params From CFN
 
 ## Purpose 
 To deploy a public template using a local template/parameters file (or.. use S3.. whatever) 
