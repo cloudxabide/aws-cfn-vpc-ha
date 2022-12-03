@@ -12,12 +12,17 @@ Grab the Parameters and create a text file.
 Parse the text file and run some foo to create the JSON output.
 Party
 
+-- Note:  I do the work in a "tmp" directory which has a ~/.gitignore - to ensure your params don't end up in Git somehow
+
 ```
-REGION="us-west-2"   
-STACK_NAME="WordPress"  
+cd tmp
+REGION="us-east-1"   
+STACK_APP="Wordpress"
+STACK_NAME="${STACK_APP}-`date +%F`"  
 OUTPUT="params-${STACK_NAME}-${REGION}.json"  
-INPUT="params-${STACK_NAME}-${REGION}.cfn"  
+INPUT="../Params/params-${STACK_APP}-${REGION}.cfn"  
 OPTIONS=" --disable-rollback"  
+
 #- create params.cfn which will be a cut-and-paste of the "Parameters" section of the CFN creation page.  
 # I added "DUMMY" as there is a new field (-k3) in the output now (what a PITA :-(
 grep -v ^# $INPUT | while read ParameterKey ParameterValue DUMMY; do echo -e "  {\n    \"ParameterKey\": \"${ParameterKey}\",\n    \"ParameterValue\": \"${ParameterValue}\"\n  },"; done > ${OUTPUT}  
@@ -39,6 +44,7 @@ sed -i'' '1i\
 esac
 echo "]" >> ${OUTPUT}
 
+# Then... update all the "<replace>" entries in  your $OUTPUT File
 aws cloudformation create-stack --stack-name "${STACK_NAME}" \
   --template-body https://s3.amazonaws.com/aws-refarch/wordpress/latest/templates/aws-refarch-wordpress-master-newvpc.yaml \
   --parameters file://`pwd`/${OUTPUT} \
